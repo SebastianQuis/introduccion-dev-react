@@ -3,20 +3,23 @@ import {heroes} from './data/heroes';
 console.log('IMPORT - EXPORT');
 
 const getHeroeById = (id) => {
-    // let getHeroe;
-    const stringHeroe = heroes.map( heroe => {
-        if (heroe.id === id) {
-            // getHeroe = `el heroe es: ${heroe.name}`;
-            return heroe;
-        } else {
-            // getHeroe = 'no se encontró heroe';
-            return null;
-        }
-    });
+    
+    const heroe = heroes.find( (heroe) => heroe.id === id );
+    return heroe;
+    
+    // const miHeroe = heroes.filter( heroe => {
+    //     if (heroe.id === id) {
+    //         // getHeroe = `el heroe es: ${heroe.name}`;
+    //         return heroe;
+    //     }
+        
+    // });
 
-    return stringHeroe;
-} 
+    // return miHeroe[0];
+}
 
+const getHeroeByOwner = (owner) => heroes.filter( (heroe) => heroe.owner === owner);
+console.log(getHeroeByOwner("DC"));
 
 
 // const heroe = heroes.map( heroe => {
@@ -24,7 +27,7 @@ const getHeroeById = (id) => {
 //     return heroe;
 // });
 
-console.log(getHeroeById(2));
+console.log(getHeroeById(2) ?? false);
 
 
 
