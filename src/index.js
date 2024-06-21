@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {heroes} from './data/heroes';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+console.log('IMPORT - EXPORT');
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const getHeroeById = (id) => {
+    // let getHeroe;
+    const stringHeroe = heroes.map( heroe => {
+        if (heroe.id === id) {
+            // getHeroe = `el heroe es: ${heroe.name}`;
+            return heroe;
+        } else {
+            // getHeroe = 'no se encontró heroe';
+            return null;
+        }
+    });
+
+    return stringHeroe;
+} 
+
+
+
+// const heroe = heroes.map( heroe => {
+//     console.log(`nombre: ${heroe.name}`);
+//     return heroe;
+// });
+
+console.log(getHeroeById(2));
+
+
+
